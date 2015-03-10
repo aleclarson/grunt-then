@@ -1,4 +1,4 @@
-## grunt-anon-tasks v0.1.0
+## grunt-anon-tasks v0.1.2
 
 **What is this?** 
 
