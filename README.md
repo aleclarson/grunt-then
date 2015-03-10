@@ -72,6 +72,8 @@ grunt.task.then("A description of what I'm doing", function () {
 })
 ```
 
+If provided, the description will appear in your terminal (below the message that says `Running "anon_x" task`).
+
 -
 
 #### Failability
@@ -96,5 +98,3 @@ grunt.task
 #### Lifecycle
 
 Anonymous tasks are deleted after completion; thus, it isn't possible to run the same anonymous task more than once.
-
--

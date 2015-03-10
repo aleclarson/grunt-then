@@ -15,8 +15,9 @@ module.exports = (grunt) ->
 
 		# Register and queue the anonymous task.
 		grunt
-			.registerTask name, description, ->
+			.registerTask name, ->
 				delete grunt.task._tasks[name]
+				grunt.log.writeln description
 				return task.call this
 			.run name
 
