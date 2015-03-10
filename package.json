@@ -1,0 +1,28 @@
+{
+  "name": "grunt-anon-tasks",
+  "description": "Run anonymous Grunt tasks.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/aleclarson/grunt-anon-tasks",
+  "main": "index.coffee",
+  "author": {
+    "name": "Alec Larson",
+    "url": "https://github.com/aleclarson"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aleclarson/grunt-anon-tasks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aleclarson/grunt-anon-tasks/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/aleclarson/grunt-anon-tasks/blob/master/LICENSE-MIT"
+    }
+  ],
+  "keywords": [
+    "grunt",
+    "gruntplugin"
+  ]
+}
