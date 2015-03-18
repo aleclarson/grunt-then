@@ -1,6 +1,6 @@
-## grunt-anon-tasks v0.1.2
+## grunt-anon-tasks v0.2.1
 
-**What is this?** 
+**What is this?**
 
 A plugin for [Grunt](http://gruntjs.com/) that allows you to create **anonymous tasks** using `grunt.task.then()`.
 
@@ -40,7 +40,13 @@ npm install --save-dev grunt-anon-tasks
 In your `Gruntfile.js`:
 
 ```Javascript
-require("grunt-anon-tasks")(grunt)
+grunt.loadNpmTasks("grunt-anon-tasks")
+```
+
+But I suggest using [`load-grunt-tasks`](https://github.com/sindresorhus/load-grunt-tasks):
+
+```Javascript
+require("load-grunt-tasks")(grunt) // loads every installed "grunt-*" module
 ```
 
 -

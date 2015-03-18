@@ -1,0 +1,99 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.7.0
+3 info using node@v1.5.1
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 silly cache add args [ '.', null ]
+7 verbose cache add spec .
+8 silly cache add parsed spec { raw: '.',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: '.',
+8 silly cache add   spec: '/Users/aleclarsoniv/coffee-tools/modules/grunt-anon-tasks',
+8 silly cache add   type: 'directory' }
+9 verbose addLocalDirectory /Users/aleclarsoniv/.npm/grunt-anon-tasks/0.2.0/package.tgz not in flight; packing
+10 verbose tar pack [ '/Users/aleclarsoniv/.npm/grunt-anon-tasks/0.2.0/package.tgz',
+10 verbose tar pack   '/Users/aleclarsoniv/coffee-tools/modules/grunt-anon-tasks' ]
+11 verbose tarball /Users/aleclarsoniv/.npm/grunt-anon-tasks/0.2.0/package.tgz
+12 verbose folder /Users/aleclarsoniv/coffee-tools/modules/grunt-anon-tasks
+13 info prepublish grunt-anon-tasks@0.2.0
+14 verbose addLocalTarball adding from inside cache /Users/aleclarsoniv/.npm/grunt-anon-tasks/0.2.0/package.tgz
+15 silly cache afterAdd grunt-anon-tasks@0.2.0
+16 verbose afterAdd /Users/aleclarsoniv/.npm/grunt-anon-tasks/0.2.0/package/package.json not in flight; writing
+17 verbose afterAdd /Users/aleclarsoniv/.npm/grunt-anon-tasks/0.2.0/package/package.json written
+18 silly publish { name: 'grunt-anon-tasks',
+18 silly publish   description: 'Run anonymous Grunt tasks.',
+18 silly publish   version: '0.2.0',
+18 silly publish   homepage: 'https://github.com/aleclarson/grunt-anon-tasks',
+18 silly publish   main: 'index.coffee',
+18 silly publish   author: { name: 'Alec Larson', url: 'https://github.com/aleclarson' },
+18 silly publish   repository:
+18 silly publish    { type: 'git',
+18 silly publish      url: 'git://github.com/aleclarson/grunt-anon-tasks.git' },
+18 silly publish   bugs: { url: 'https://github.com/aleclarson/grunt-anon-tasks/issues' },
+18 silly publish   licenses:
+18 silly publish    [ { type: 'MIT',
+18 silly publish        url: 'https://github.com/aleclarson/grunt-anon-tasks/blob/master/LICENSE-MIT' } ],
+18 silly publish   keywords: [ 'grunt', 'gruntplugin' ],
+18 silly publish   readme: '## grunt-anon-tasks v0.2.0\n\n**What is this?**\n\nA plugin for [Grunt](http://gruntjs.com/) that allows you to create **anonymous tasks** using `grunt.task.then()`.\n\n**What\'s an anonymous task?** \n\nA task that you can run without ever calling `grunt.registerTask()` manually. Anonymous tasks are extremely useful for (1) completion callbacks and (2) dynamic task configuration.\n\n-\n\n#### Table of Contents\n\n&nbsp;&nbsp;&nbsp;&nbsp;\n[Installation](#installation)\n\n&nbsp;&nbsp;&nbsp;&nbsp;\n[Example](#example)\n\n&nbsp;&nbsp;&nbsp;&nbsp;\n[Descriptions](#descriptions)\n\n&nbsp;&nbsp;&nbsp;&nbsp;\n[Failability](#failability)\n\n&nbsp;&nbsp;&nbsp;&nbsp;\n[Lifecycle](#lifecycle)\n\n-\n\n#### Installation\n\nIn your terminal:\n\n```\nnpm install --save-dev grunt-anon-tasks\n```\n\nIn your `Gruntfile.js`:\n\n```Javascript\ngrunt.loadNpmTasks("grunt-anon-tasks")\n```\n\nBut I suggest using [`load-grunt-tasks`](https://github.com/sindresorhus/load-grunt-tasks):\n\n```Javascript\nrequire("load-grunt-tasks")(grunt) // loads every installed "grunt-*" module\n```\n\n-\n\n#### Example\n\nIn the example below, the anonymous task runs after `clean` completes and before `build` starts.\n\n```Javascript\ngrunt.task\n  .run("clean")\n  .then(function () {\n    grunt.log.writeln(this.name)\n  })\n  .run("build")\n```\n\nThe `this` variable in anonymous tasks is the same [as in registered tasks](http://gruntjs.com/api/inside-tasks).\n\n-\n\n#### Descriptions\n\nDebugging is easier when an anonymous task has a description. Of course, this is optional.\n\n```Javascript\ngrunt.task.then("A description of what I\'m doing", function () {\n  // do cool grunty things\n})\n```\n\nIf provided, the description will appear in your terminal (below the message that says `Running "anon_x" task`).\n\n-\n\n#### Failability\n\nAnonymous tasks can signal failure either synchronously or asynchronously; just like registered tasks.\n\n```Javascript\ngrunt.task\n  .then(function () {\n    return false // synchronous failure\n  })\n  .then(function () {\n    var done = this.async()\n    performAsyncOperation(function () {\n      done(false) // asynchronous failure\n    })\n  })\n```\n\n-\n\n#### Lifecycle\n\nAnonymous tasks are deleted after completion; thus, it isn\'t possible to run the same anonymous task more than once.\n',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: '872e59e189b093f13f3c34d9fe3a7e87bcaed51a',
+18 silly publish   _id: 'grunt-anon-tasks@0.2.0',
+18 silly publish   scripts: {},
+18 silly publish   _shasum: '19aec7184ae214cbb4830d3bf7f9467d41a2535a',
+18 silly publish   _from: '.' }
+19 silly mapToRegistry name grunt-anon-tasks
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/grunt-anon-tasks
+23 verbose publish registryBase https://registry.npmjs.org/
+24 silly publish uploading /Users/aleclarsoniv/.npm/grunt-anon-tasks/0.2.0/package.tgz
+25 verbose request uri https://registry.npmjs.org/grunt-anon-tasks
+26 verbose request sending authorization for write operation
+27 info attempt registry request try #1 at 07:20:36
+28 verbose request id 259cec1a42b9cdcd
+29 http request PUT https://registry.npmjs.org/grunt-anon-tasks
+30 http 403 https://registry.npmjs.org/grunt-anon-tasks
+31 verbose headers { date: 'Wed, 18 Mar 2015 14:20:37 GMT',
+31 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 verbose headers   'content-type': 'application/json',
+31 verbose headers   'cache-control': 'max-age=60',
+31 verbose headers   'content-length': '5360',
+31 verbose headers   'accept-ranges': 'bytes',
+31 verbose headers   via: '1.1 varnish',
+31 verbose headers   'x-served-by': 'cache-sjc3134-SJC',
+31 verbose headers   'x-cache': 'MISS',
+31 verbose headers   'x-cache-hits': '0',
+31 verbose headers   'x-timer': 'S1426688437.198863,VS0,VE59',
+31 verbose headers   'keep-alive': 'timeout=10, max=50',
+31 verbose headers   connection: 'Keep-Alive' }
+32 verbose request invalidating /Users/aleclarsoniv/.npm/registry.npmjs.org/grunt-anon-tasks on PUT
+33 error publish Failed PUT 403
+34 verbose stack Error: forbidden cannot modify pre-existing version: 0.2.0
+34 verbose stack old={"name":"grunt-anon-tasks","description":"Run anonymous Grunt tasks.","version":"0.2.0","homepage":"https://github.com/aleclarson/grunt-anon-tasks","main":"index.coffee","author":{"name":"Alec Larson","url":"https://github.com/aleclarson"},"repository":{"type":"git","url":"git://github.com/aleclarson/grunt-anon-tasks.git"},"bugs":{"url":"https://github.com/aleclarson/grunt-anon-tasks/issues"},"licenses":[{"type":"MIT","url":"https://github.com/aleclarson/grunt-anon-tasks/blob/master/LICENSE-MIT"}],"keywords":["grunt","gruntplugin"],"gitHead":"9e75d5ce5eb9cdf643a7c7e22aaa4f861743219e","_id":"grunt-anon-tasks@0.2.0","scripts":{},"_shasum":"15789d1dc53ff96cb00575b82d2c88f0cb74f7be","_from":".","_npmVersion":"2.5.1","_nodeVersion":"0.12.0","_npmUser":{"name":"aleclarson","email":"alec.stanford.larson@gmail.com"},"maintainers":[{"name":"aleclarson","email":"alec.stanford.larson@gmail.com"}],"dist":{"shasum":"15789d1dc53ff96cb00575b82d2c88f0cb74f7be","tarball":"http://registry.npmjs.org/grunt-anon-tasks/-/grunt-anon-tasks-0.2.0.tgz"}}
+34 verbose stack new={"name":"grunt-anon-tasks","description":"Run anonymous Grunt tasks.","version":"0.2.0","homepage":"https://github.com/aleclarson/grunt-anon-tasks","main":"index.coffee","author":{"name":"Alec Larson","url":"https://github.com/aleclarson"},"repository":{"type":"git","url":"git://github.com/aleclarson/grunt-anon-tasks.git"},"bugs":{"url":"https://github.com/aleclarson/grunt-anon-tasks/issues"},"licenses":[{"type":"MIT","url":"https://github.com/aleclarson/grunt-anon-tasks/blob/master/LICENSE-MIT"}],"keywords":["grunt","gruntplugin"],"readme":"## grunt-anon-tasks v0.2.0\u000a\u000a**What is this?**\u000a\u000aA plugin for [Grunt](http://gruntjs.com/) that allows you to create **anonymous tasks** using `grunt.task.then()`.\u000a\u000a**What's an anonymous task?** \u000a\u000aA task that you can run without ever calling `grunt.registerTask()` manually. Anonymous tasks are extremely useful for (1) completion callbacks and (2) dynamic task configuration.\u000a\u000a-\u000a\u000a#### Table of Contents\u000a\u000a&nbsp;&nbsp;&nbsp;&nbsp;\u000a[Installation](#installation)\u000a\u000a&nbsp;&nbsp;&nbsp;&nbsp;\u000a[Example](#example)\u000a\u000a&nbsp;&nbsp;&nbsp;&nbsp;\u000a[Descriptions](#descriptions)\u000a\u000a&nbsp;&nbsp;&nbsp;&nbsp;\u000a[Failability](#failability)\u000a\u000a&nbsp;&nbsp;&nbsp;&nbsp;\u000a[Lifecycle](#lifecycle)\u000a\u000a-\u000a\u000a#### Installation\u000a\u000aIn your terminal:\u000a\u000a```\u000anpm install --save-dev grunt-anon-tasks\u000a```\u000a\u000aIn your `Gruntfile.js`:\u000a\u000a```Javascript\u000agrunt.loadNpmTasks(\"grunt-anon-tasks\")\u000a```\u000a\u000aBut I suggest using [`load-grunt-tasks`](https://github.com/sindresorhus/load-grunt-tasks):\u000a\u000a```Javascript\u000arequire(\"load-grunt-tasks\")(grunt) // loads every installed \"grunt-*\" module\u000a```\u000a\u000a-\u000a\u000a#### Example\u000a\u000aIn the example below, the anonymous task runs after `clean` completes and before `build` starts.\u000a\u000a```Javascript\u000agrunt.task\u000a  .run(\"clean\")\u000a  .then(function () {\u000a    grunt.log.writeln(this.name)\u000a  })\u000a  .run(\"build\")\u000a```\u000a\u000aThe `this` variable in anonymous tasks is the same [as in registered tasks](http://gruntjs.com/api/inside-tasks).\u000a\u000a-\u000a\u000a#### Descriptions\u000a\u000aDebugging is easier when an anonymous task has a description. Of course, this is optional.\u000a\u000a```Javascript\u000agrunt.task.then(\"A description of what I'm doing\", function () {\u000a  // do cool grunty things\u000a})\u000a```\u000a\u000aIf provided, the description will appear in your terminal (below the message that says `Running \"anon_x\" task`).\u000a\u000a-\u000a\u000a#### Failability\u000a\u000aAnonymous tasks can signal failure either synchronously or asynchronously; just like registered tasks.\u000a\u000a```Javascript\u000agrunt.task\u000a  .then(function () {\u000a    return false // synchronous failure\u000a  })\u000a  .then(function () {\u000a    var done = this.async()\u000a    performAsyncOperation(function () {\u000a      done(false) // asynchronous failure\u000a    })\u000a  })\u000a```\u000a\u000a-\u000a\u000a#### Lifecycle\u000a\u000aAnonymous tasks are deleted after completion; thus, it isn't possible to run the same anonymous task more than once.\u000a","readmeFilename":"README.md","gitHead":"872e59e189b093f13f3c34d9fe3a7e87bcaed51a","_id":"grunt-anon-tasks@0.2.0","scripts":{},"_shasum":"19aec7184ae214cbb4830d3bf7f9467d41a2535a","_from":".","_npmVersion":"2.7.0","_nodeVersion":"1.5.1","_npmUser":{"name":"aleclarson","email":"alec.stanford.larson@gmail.com"},"maintainers":[{"name":"aleclarson","email":"alec.stanford.larson@gmail.com"}],"dist":{"shasum":"19aec7184ae214cbb4830d3bf7f9467d41a2535a","tarball":"http://registry.npmjs.org/grunt-anon-tasks/-/grunt-anon-tasks-0.2.0.tgz"}}: grunt-anon-tasks
+34 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:254:14)
+34 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:178:14)
+34 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:344:22)
+34 verbose stack     at emitTwo (events.js:87:13)
+34 verbose stack     at Request.emit (events.js:169:7)
+34 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1239:14)
+34 verbose stack     at emitOne (events.js:82:20)
+34 verbose stack     at Request.emit (events.js:166:7)
+34 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1187:12)
+34 verbose stack     at emitNone (events.js:72:20)
+35 verbose statusCode 403
+36 verbose pkgid grunt-anon-tasks
+37 verbose cwd /Users/aleclarsoniv/coffee-tools/modules/grunt-anon-tasks
+38 error Darwin 14.1.0
+39 error argv "node" "/usr/local/bin/npm" "publish"
+40 error node v1.5.1
+41 error npm  v2.7.0
+42 error code E403
+43 error forbidden cannot modify pre-existing version: 0.2.0
+43 error old={"name":"grunt-anon-tasks","description":"Run anonymous Grunt tasks.","version":"0.2.0","homepage":"https://github.com/aleclarson/grunt-anon-tasks","main":"index.coffee","author":{"name":"Alec Larson","url":"https://github.com/aleclarson"},"repository":{"type":"git","url":"git://github.com/aleclarson/grunt-anon-tasks.git"},"bugs":{"url":"https://github.com/aleclarson/grunt-anon-tasks/issues"},"licenses":[{"type":"MIT","url":"https://github.com/aleclarson/grunt-anon-tasks/blob/master/LICENSE-MIT"}],"keywords":["grunt","gruntplugin"],"gitHead":"9e75d5ce5eb9cdf643a7c7e22aaa4f861743219e","_id":"grunt-anon-tasks@0.2.0","scripts":{},"_shasum":"15789d1dc53ff96cb00575b82d2c88f0cb74f7be","_from":".","_npmVersion":"2.5.1","_nodeVersion":"0.12.0","_npmUser":{"name":"aleclarson","email":"alec.stanford.larson@gmail.com"},"maintainers":[{"name":"aleclarson","email":"alec.stanford.larson@gmail.com"}],"dist":{"shasum":"15789d1dc53ff96cb00575b82d2c88f0cb74f7be","tarball":"http://registry.npmjs.org/grunt-anon-tasks/-/grunt-anon-tasks-0.2.0.tgz"}}
+43 error new={"name":"grunt-anon-tasks","description":"Run anonymous Grunt tasks.","version":"0.2.0","homepage":"https://github.com/aleclarson/grunt-anon-tasks","main":"index.coffee","author":{"name":"Alec Larson","url":"https://github.com/aleclarson"},"repository":{"type":"git","url":"git://github.com/aleclarson/grunt-anon-tasks.git"},"bugs":{"url":"https://github.com/aleclarson/grunt-anon-tasks/issues"},"licenses":[{"type":"MIT","url":"https://github.com/aleclarson/grunt-anon-tasks/blob/master/LICENSE-MIT"}],"keywords":["grunt","gruntplugin"],"readme":"## grunt-anon-tasks v0.2.0\u000a\u000a**What is this?**\u000a\u000aA plugin for [Grunt](http://gruntjs.com/) that allows you to create **anonymous tasks** using `grunt.task.then()`.\u000a\u000a**What's an anonymous task?** \u000a\u000aA task that you can run without ever calling `grunt.registerTask()` manually. Anonymous tasks are extremely useful for (1) completion callbacks and (2) dynamic task configuration.\u000a\u000a-\u000a\u000a#### Table of Contents\u000a\u000a&nbsp;&nbsp;&nbsp;&nbsp;\u000a[Installation](#installation)\u000a\u000a&nbsp;&nbsp;&nbsp;&nbsp;\u000a[Example](#example)\u000a\u000a&nbsp;&nbsp;&nbsp;&nbsp;\u000a[Descriptions](#descriptions)\u000a\u000a&nbsp;&nbsp;&nbsp;&nbsp;\u000a[Failability](#failability)\u000a\u000a&nbsp;&nbsp;&nbsp;&nbsp;\u000a[Lifecycle](#lifecycle)\u000a\u000a-\u000a\u000a#### Installation\u000a\u000aIn your terminal:\u000a\u000a```\u000anpm install --save-dev grunt-anon-tasks\u000a```\u000a\u000aIn your `Gruntfile.js`:\u000a\u000a```Javascript\u000agrunt.loadNpmTasks(\"grunt-anon-tasks\")\u000a```\u000a\u000aBut I suggest using [`load-grunt-tasks`](https://github.com/sindresorhus/load-grunt-tasks):\u000a\u000a```Javascript\u000arequire(\"load-grunt-tasks\")(grunt) // loads every installed \"grunt-*\" module\u000a```\u000a\u000a-\u000a\u000a#### Example\u000a\u000aIn the example below, the anonymous task runs after `clean` completes and before `build` starts.\u000a\u000a```Javascript\u000agrunt.task\u000a  .run(\"clean\")\u000a  .then(function () {\u000a    grunt.log.writeln(this.name)\u000a  })\u000a  .run(\"build\")\u000a```\u000a\u000aThe `this` variable in anonymous tasks is the same [as in registered tasks](http://gruntjs.com/api/inside-tasks).\u000a\u000a-\u000a\u000a#### Descriptions\u000a\u000aDebugging is easier when an anonymous task has a description. Of course, this is optional.\u000a\u000a```Javascript\u000agrunt.task.then(\"A description of what I'm doing\", function () {\u000a  // do cool grunty things\u000a})\u000a```\u000a\u000aIf provided, the description will appear in your terminal (below the message that says `Running \"anon_x\" task`).\u000a\u000a-\u000a\u000a#### Failability\u000a\u000aAnonymous tasks can signal failure either synchronously or asynchronously; just like registered tasks.\u000a\u000a```Javascript\u000agrunt.task\u000a  .then(function () {\u000a    return false // synchronous failure\u000a  })\u000a  .then(function () {\u000a    var done = this.async()\u000a    performAsyncOperation(function () {\u000a      done(false) // asynchronous failure\u000a    })\u000a  })\u000a```\u000a\u000a-\u000a\u000a#### Lifecycle\u000a\u000aAnonymous tasks are deleted after completion; thus, it isn't possible to run the same anonymous task more than once.\u000a","readmeFilename":"README.md","gitHead":"872e59e189b093f13f3c34d9fe3a7e87bcaed51a","_id":"grunt-anon-tasks@0.2.0","scripts":{},"_shasum":"19aec7184ae214cbb4830d3bf7f9467d41a2535a","_from":".","_npmVersion":"2.7.0","_nodeVersion":"1.5.1","_npmUser":{"name":"aleclarson","email":"alec.stanford.larson@gmail.com"},"maintainers":[{"name":"aleclarson","email":"alec.stanford.larson@gmail.com"}],"dist":{"shasum":"19aec7184ae214cbb4830d3bf7f9467d41a2535a","tarball":"http://registry.npmjs.org/grunt-anon-tasks/-/grunt-anon-tasks-0.2.0.tgz"}}: grunt-anon-tasks
+44 error If you need help, you may report this error at:
+44 error     <http://github.com/npm/npm/issues>
+45 verbose exit [ 1, true ]
