@@ -1,31 +1,30 @@
 
+__anon__ = "__anon__"
+
 module.exports = (grunt) ->
 
 	{ Task } = grunt.util.task
 
-	Task::then = (description, task) ->
+	Task::then = ($1, $2) ->
+		$2 = $1 if !$2?
 
-		# Create a unique, anonymous name.
-		name = "anon_" + _index++
-
-		# Make the description optional.
-		if description instanceof Function
-			task = description
-			description = null
-
-		# Register and queue the anonymous task.
-		grunt
-			.registerTask name, ->
-				delete grunt.task._tasks[name]
-				grunt.log.writeln description
+		if $2 instanceof Function
+			info = $1
+			fn = $2
+			grunt.registerTask __anon__, ->
+				delete grunt.task._tasks[__anon__]
+				grunt.log.writeln "\n" + info
 				return task.call this
-			.run name
+			grunt.task.run __anon__
 
-		# Make it chainable!
+		else if $2 instanceof Object
+			task = $1
+			opts = $2
+			grunt.config.set task + "." + __anon__, options
+			grunt.task.run task + ":" + __anon__
+			grunt.task.then -> grunt.config.set task + "." + __anon__, undefined
+
 		return this
-
-	####################################
-	####################################
 
 	_index = 0
 

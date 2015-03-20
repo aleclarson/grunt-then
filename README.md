@@ -1,4 +1,4 @@
-## grunt-anon-tasks v0.2.2
+## grunt-anon-tasks v0.2.3
 
 **What is this?**
 
@@ -17,6 +17,9 @@ A task that you can run without ever calling `grunt.registerTask()` manually. An
 
 &nbsp;&nbsp;&nbsp;&nbsp;
 [Example](#example)
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+[Anonymous Targets](#anonymous-targets)
 
 &nbsp;&nbsp;&nbsp;&nbsp;
 [Descriptions](#descriptions)
@@ -65,6 +68,19 @@ grunt.task
 ```
 
 The `this` variable in anonymous tasks is the same [as in registered tasks](http://gruntjs.com/api/inside-tasks).
+
+-
+
+#### Anonymous Targets
+
+Now in `v0.2.3`, you can run existing tasks with anonymous targets.
+
+```Javascript
+grunt.task.then("watch", {
+  files: ["**/*.js"],
+  tasks: ["clean", "build"]
+})
+```
 
 -
 

@@ -1,7 +1,7 @@
 {
   "name": "grunt-anon-tasks",
   "description": "Run anonymous Grunt tasks.",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "homepage": "https://github.com/aleclarson/grunt-anon-tasks",
   "author": {
     "name": "Alec Larson",
