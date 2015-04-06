@@ -13,7 +13,7 @@ module.exports = (grunt) ->
 			fn = $2
 			grunt.registerTask __anon__, ->
 				delete grunt.task._tasks[__anon__]
-				grunt.log.writeln "\n" + info
+				grunt.verbose.writeln "\n" + info
 				return task.call this
 			grunt.task.run __anon__
 
