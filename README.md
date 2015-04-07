@@ -1,108 +1,23 @@
-## grunt-anon-tasks v0.2.3
 
-**What is this?**
+# grunt-then v1.0.0
 
-A plugin for [Grunt](http://gruntjs.com/) that allows you to create **anonymous tasks** using `grunt.task.then()`.
+Schedule a `Function` to be called without ever registering it via `grunt.registerTask`. This is called an **anonymous task**.
 
-**What's an anonymous task?** 
-
-A task that you can run without ever calling `grunt.registerTask()` manually. Anonymous tasks are extremely useful for (1) completion callbacks and (2) dynamic task configuration.
-
--
-
-#### Table of Contents
-
-&nbsp;&nbsp;&nbsp;&nbsp;
-[Installation](#installation)
-
-&nbsp;&nbsp;&nbsp;&nbsp;
-[Example](#example)
-
-&nbsp;&nbsp;&nbsp;&nbsp;
-[Anonymous Targets](#anonymous-targets)
-
-&nbsp;&nbsp;&nbsp;&nbsp;
-[Descriptions](#descriptions)
-
-&nbsp;&nbsp;&nbsp;&nbsp;
-[Failability](#failability)
-
-&nbsp;&nbsp;&nbsp;&nbsp;
-[Lifecycle](#lifecycle)
-
--
-
-#### Installation
-
-In your terminal:
-
-```
-npm install --save-dev grunt-anon-tasks
-```
-
-In your `Gruntfile.js`:
-
-```Javascript
-grunt.loadNpmTasks("grunt-anon-tasks")
-```
-
-But I suggest using [`load-grunt-tasks`](https://github.com/sindresorhus/load-grunt-tasks):
-
-```Javascript
-require("load-grunt-tasks")(grunt) // loads every installed "grunt-*" module
-```
-
--
-
-#### Example
-
-In the example below, the anonymous task runs after `clean` completes and before `build` starts.
-
-```Javascript
-grunt.task
-  .run("clean")
+```JavaScript
+grunt
+  .run("coffee")
   .then(function () {
-    grunt.log.writeln(this.name)
+    console.log(this.name)
   })
-  .run("build")
 ```
 
-The `this` variable in anonymous tasks is the same [as in registered tasks](http://gruntjs.com/api/inside-tasks).
+As seen above, the `this` context in anonymous tasks is [just like in normal tasks](http://gruntjs.com/api/inside-tasks).
 
 -
 
-#### Anonymous Targets
+Plus, you can fail an anonymous task early (just like in normal tasks).
 
-Now in `v0.2.3`, you can run existing tasks with anonymous targets.
-
-```Javascript
-grunt.task.then("watch", {
-  files: ["**/*.js"],
-  tasks: ["clean", "build"]
-})
-```
-
--
-
-#### Descriptions
-
-Debugging is easier when an anonymous task has a description. Of course, this is optional.
-
-```Javascript
-grunt.task.then("A description of what I'm doing", function () {
-  // do cool grunty things
-})
-```
-
-If provided, the description will appear in your terminal (below the message that says `Running "anon_x" task`).
-
--
-
-#### Failability
-
-Anonymous tasks can signal failure either synchronously or asynchronously; just like registered tasks.
-
-```Javascript
+```JavaScript
 grunt.task
   .then(function () {
     return false // synchronous failure
@@ -117,6 +32,37 @@ grunt.task
 
 -
 
-#### Lifecycle
+Debugging is easier when an anonymous task has a description. Of course, this is optional.
 
-Anonymous tasks are deleted after completion; thus, it isn't possible to run the same anonymous task more than once.
+```Javascript
+grunt.task.then("A description of what I'm doing", function () {
+  // do cool grunty things
+})
+```
+
+If the `--verbose` flag is used and a description is provided, it will be printed when the anonymous task starts.
+
+-
+
+Schedule an existing task to be called with a single-use configuration. This is called an **anonymous target**.
+
+```JavaScript
+grunt.then("clean", {
+  // Calls the 'clean' task with temporary configuration (after the previous task completes).
+})
+```
+
+install
+-------
+
+```sh
+npm install --save-dev grunt-then
+```
+
+In your Gruntfile:
+
+```Javascript
+grunt.loadNpmTasks("grunt-then")
+```
+
+Use [`load-grunt-tasks`](https://github.com/sindresorhus/load-grunt-tasks) when you have more than one NPM task to load.

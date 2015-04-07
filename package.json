@@ -1,25 +1,19 @@
 {
-  "name": "grunt-anon-tasks",
-  "description": "Run anonymous Grunt tasks.",
-  "version": "0.2.3",
-  "homepage": "https://github.com/aleclarson/grunt-anon-tasks",
+  "name": "grunt-then",
+  "description": "Anonymous tasks and targets in Grunt.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/aleclarson/grunt-then",
   "author": {
     "name": "Alec Larson",
     "url": "https://github.com/aleclarson"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/aleclarson/grunt-anon-tasks.git"
+    "url": "git://github.com/aleclarson/grunt-then.git"
   },
   "bugs": {
-    "url": "https://github.com/aleclarson/grunt-anon-tasks/issues"
+    "url": "https://github.com/aleclarson/grunt-then/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/aleclarson/grunt-anon-tasks/blob/master/LICENSE-MIT"
-    }
-  ],
   "keywords": [
     "grunt",
     "gruntplugin"
